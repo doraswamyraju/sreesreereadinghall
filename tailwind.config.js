@@ -8,21 +8,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
-          200: '#fecdd3',
-          300: '#fda4af',
-          400: '#fb7185',
-          500: '#f43f5e',
-          600: '#e11d48',
-          700: '#be123c',
-          800: '#9f1239',
-          900: '#881337',
-          dark: '#0d0714',
-          card: '#180e25',
-          border: '#2a1840',
-          gold: '#f59e0b',
-          goldLight: '#fbbf24'
+          pink: '#db2777',
+          pinkHover: '#be185d',
+          pinkDark: '#9d174d',
+          pinkLight: '#fdf2f8',
+          pinkBorder: '#fbcfe8',
+          blue: '#1d4ed8',
+          orange: '#ea580c',
         }
       },
       fontFamily: {
