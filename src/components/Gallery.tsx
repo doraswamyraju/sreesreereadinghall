@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GALLERY_IMAGES } from '../data/mockData';
 import { GalleryImage } from '../types';
-import { Maximize2, X, Sparkles, Camera } from 'lucide-react';
+import { Maximize2, X, Camera } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -20,7 +20,7 @@ export const Gallery: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 flex items-center justify-center w-fit mx-auto">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/30 flex items-center justify-center w-fit mx-auto">
             <Camera className="w-3.5 h-3.5 mr-1.5" /> Real Photo Tour
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit']">
@@ -38,8 +38,8 @@ export const Gallery: React.FC = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   selectedCategory === cat
-                    ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
-                    : 'bg-emerald-950/40 text-slate-300 border border-emerald-500/20 hover:border-emerald-500/40'
+                    ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md shadow-rose-600/20'
+                    : 'bg-rose-950/40 text-slate-300 border border-rose-500/20 hover:border-rose-500/40'
                 }`}
               >
                 {cat}
@@ -54,7 +54,7 @@ export const Gallery: React.FC = () => {
             <div
               key={img.id}
               onClick={() => setActiveModalImage(img)}
-              className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-emerald-500/20 hover:border-emerald-400/50 transition-all duration-300 relative"
+              className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-rose-500/20 hover:border-rose-400/50 transition-all duration-300 relative"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -63,21 +63,20 @@ export const Gallery: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 
-                {/* Hover overlay with zoom icon */}
-                <div className="absolute inset-0 bg-emerald-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
+                <div className="absolute inset-0 bg-rose-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                    <Maximize2 className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
+                    <Maximize2 className="w-8 h-8 text-rose-400 mx-auto mb-2" />
                     <p className="text-xs font-bold text-white uppercase tracking-wider">Click to Expand</p>
                   </div>
                 </div>
 
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/90 border border-emerald-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
+                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-rose-300 bg-rose-950/90 border border-rose-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
                   {img.category}
                 </span>
               </div>
 
               <div className="p-4 bg-slate-900/90">
-                <h3 className="text-base font-bold text-white font-['Outfit'] group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-base font-bold text-white font-['Outfit'] group-hover:text-rose-400 transition-colors">
                   {img.title}
                 </h3>
                 <p className="text-xs text-slate-400 line-clamp-2 mt-1">
@@ -93,11 +92,11 @@ export const Gallery: React.FC = () => {
       {/* Lightbox Zoom Modal */}
       {activeModalImage && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in">
-          <div className="relative max-w-4xl w-full glass-card border border-emerald-500/40 rounded-3xl overflow-hidden bg-slate-900">
+          <div className="relative max-w-4xl w-full glass-card border border-rose-500/40 rounded-3xl overflow-hidden bg-slate-900">
             
             <button
               onClick={() => setActiveModalImage(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-950/80 border border-emerald-500/30 text-white hover:text-emerald-400"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-950/80 border border-rose-500/30 text-white hover:text-rose-400"
             >
               <X className="w-6 h-6" />
             </button>
@@ -110,8 +109,8 @@ export const Gallery: React.FC = () => {
               />
             </div>
 
-            <div className="p-6 bg-slate-950 border-t border-emerald-900/40">
-              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+            <div className="p-6 bg-slate-950 border-t border-rose-900/40">
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
                 {activeModalImage.category}
               </span>
               <h3 className="text-xl font-bold text-white font-['Outfit'] mt-0.5">

@@ -10,11 +10,18 @@ import { Contact } from './components/Contact';
 import { BookingModal } from './components/BookingModal';
 import { DashboardPreview } from './components/DashboardPreview';
 import { Footer } from './components/Footer';
-import { Seat, ShiftType } from './types';
+import { Seat, ShiftType, PricingPlan, BlogPost } from './types';
+import { GENERATED_SEATS, PRICING_PLANS, BLOG_POSTS } from './data/mockData';
 
 export function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
+
+  // Dynamic States (Managed via Dashboard)
+  const [seats, setSeats] = useState<Seat[]>(GENERATED_SEATS);
+  const [plans, setPlans] = useState<PricingPlan[]>(PRICING_PLANS);
+  const [blogs, setBlogs] = useState<BlogPost[]>(BLOG_POSTS);
+
   const [selectedSeat, setSelectedSeat] = useState<Seat | null>(null);
   const [selectedShift, setSelectedShift] = useState<ShiftType>('full_day');
 
@@ -29,7 +36,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080d0a] text-slate-100 selection:bg-emerald-500 selection:text-slate-950 font-sans">
+    <div className="min-h-screen bg-[#0b0612] text-slate-100 selection:bg-rose-500 selection:text-white font-sans">
       
       {/* Navigation Header */}
       <Navbar
@@ -42,10 +49,10 @@ export function App() {
       <main>
         <Hero onOpenBooking={handleOpenBooking} />
         <Facilities onOpenBooking={handleOpenBooking} />
-        <SeatMap onSelectSeatForBooking={handleSelectSeatForBooking} />
-        <Pricing onOpenBooking={handleOpenBooking} />
+        <SeatMap seats={seats} plans={plans} onSelectSeatForBooking={handleSelectSeatForBooking} />
+        <Pricing plans={plans} onOpenBooking={handleOpenBooking} />
         <Gallery />
-        <Blog />
+        <Blog posts={blogs} />
         <Contact />
       </main>
 
@@ -60,9 +67,17 @@ export function App() {
         selectedShift={selectedShift}
       />
 
-      {/* Dashboard & Blog Creator Preview */}
+      {/* Dashboard & Pricing Manager */}
       {showDashboard && (
-        <DashboardPreview onClose={() => setShowDashboard(false)} />
+        <DashboardPreview
+          seats={seats}
+          onUpdateSeats={setSeats}
+          plans={plans}
+          onUpdatePlans={setPlans}
+          blogs={blogs}
+          onUpdateBlogs={setBlogs}
+          onClose={() => setShowDashboard(false)}
+        />
       )}
 
     </div>

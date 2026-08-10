@@ -4,14 +4,18 @@ import { BlogPost } from '../types';
 import { BlogPostModal } from './BlogPostModal';
 import { Search, Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 
-export const Blog: React.FC = () => {
+interface BlogProps {
+  posts: BlogPost[];
+}
+
+export const Blog: React.FC<BlogProps> = ({ posts }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
 
   const categories = ['All', 'Study Tips', 'Exam Prep', 'Productivity'];
 
-  const filteredPosts = BLOG_POSTS.filter((post) => {
+  const filteredPosts = posts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -23,12 +27,12 @@ export const Blog: React.FC = () => {
   });
 
   return (
-    <section id="blog" className="py-20 relative bg-emerald-950/20">
+    <section id="blog" className="py-20 relative bg-rose-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 flex items-center justify-center w-fit mx-auto">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/30 flex items-center justify-center w-fit mx-auto">
             <BookOpen className="w-3.5 h-3.5 mr-1.5" /> Aspirant Knowledge Hub
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit']">
@@ -47,7 +51,7 @@ export const Blog: React.FC = () => {
                 placeholder="Search articles (e.g. APPSC, focus, revision)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-900 border border-emerald-500/30 text-white placeholder-slate-400 text-xs focus:outline-none focus:border-emerald-400 transition-colors"
+                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-900 border border-rose-500/30 text-white placeholder-slate-400 text-xs focus:outline-none focus:border-rose-400 transition-colors"
               />
             </div>
 
@@ -58,8 +62,8 @@ export const Blog: React.FC = () => {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                     selectedCategory === cat
-                      ? 'bg-emerald-500 text-slate-950 shadow-md'
-                      : 'bg-slate-900 text-slate-300 border border-emerald-500/20 hover:border-emerald-500/40'
+                      ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md'
+                      : 'bg-slate-900 text-slate-300 border border-rose-500/20 hover:border-rose-500/40'
                   }`}
                 >
                   {cat}
@@ -77,7 +81,7 @@ export const Blog: React.FC = () => {
               <article
                 key={post.id}
                 onClick={() => setActivePost(post)}
-                className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 flex flex-col justify-between"
+                className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-rose-500/20 hover:border-rose-400/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="relative h-48 overflow-hidden">
@@ -86,7 +90,7 @@ export const Blog: React.FC = () => {
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-slate-950/80 border border-emerald-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
+                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-rose-300 bg-slate-950/80 border border-rose-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
                       {post.category}
                     </span>
                   </div>
@@ -94,17 +98,17 @@ export const Blog: React.FC = () => {
                   <div className="p-6 space-y-3">
                     <div className="flex items-center space-x-3 text-[11px] text-slate-400 font-medium">
                       <span className="flex items-center space-x-1">
-                        <Calendar className="w-3 h-3 text-emerald-400" />
+                        <Calendar className="w-3 h-3 text-rose-400" />
                         <span>{post.date}</span>
                       </span>
                       <span>•</span>
                       <span className="flex items-center space-x-1">
-                        <Clock className="w-3 h-3 text-emerald-400" />
+                        <Clock className="w-3 h-3 text-rose-400" />
                         <span>{post.readTime}</span>
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white font-['Outfit'] group-hover:text-emerald-400 transition-colors leading-snug line-clamp-2">
+                    <h3 className="text-lg font-bold text-white font-['Outfit'] group-hover:text-rose-400 transition-colors leading-snug line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -114,7 +118,7 @@ export const Blog: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 flex items-center justify-between text-xs font-bold text-emerald-400 group-hover:text-emerald-300">
+                <div className="p-6 pt-0 flex items-center justify-between text-xs font-bold text-rose-400 group-hover:text-rose-300">
                   <span>Read Full Article</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>

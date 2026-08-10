@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Clock, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +23,7 @@ export const Contact: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/30">
             Get In Touch
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit']">
@@ -39,14 +39,14 @@ export const Contact: React.FC = () => {
           {/* Left - Location & Info (Col 5) */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-emerald-500/30 space-y-6">
-              <h3 className="text-xl font-bold text-white font-['Outfit'] border-b border-emerald-900/40 pb-3">
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-rose-500/30 space-y-6">
+              <h3 className="text-xl font-bold text-white font-['Outfit'] border-b border-rose-900/40 pb-3">
                 Branch Location & Contacts
               </h3>
 
               {/* Address */}
               <div className="flex items-start space-x-3 text-sm text-slate-300">
-                <MapPin className="w-5 h-5 text-emerald-400 shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-rose-400 shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white mb-0.5">Tirupati Main Branch</h4>
                   <p className="text-xs text-slate-300 leading-relaxed">
@@ -57,10 +57,10 @@ export const Contact: React.FC = () => {
 
               {/* Phone */}
               <div className="flex items-center space-x-3 text-sm text-slate-300">
-                <Phone className="w-5 h-5 text-emerald-400 shrink-0" />
+                <Phone className="w-5 h-5 text-rose-400 shrink-0" />
                 <div>
                   <h4 className="font-bold text-white">Direct Phone Call</h4>
-                  <a href="tel:+919666152456" className="text-xs text-emerald-400 hover:underline font-bold">
+                  <a href="tel:+919666152456" className="text-xs text-rose-400 hover:underline font-bold">
                     +91 9666152456
                   </a>
                 </div>
@@ -68,7 +68,7 @@ export const Contact: React.FC = () => {
 
               {/* Hours */}
               <div className="flex items-center space-x-3 text-sm text-slate-300">
-                <Clock className="w-5 h-5 text-emerald-400 shrink-0" />
+                <Clock className="w-5 h-5 text-rose-400 shrink-0" />
                 <div>
                   <h4 className="font-bold text-white">Operational Hours</h4>
                   <p className="text-xs text-slate-300">Open 24 Hours / 7 Days a Week</p>
@@ -81,7 +81,7 @@ export const Contact: React.FC = () => {
                   href="https://wa.me/919666152456?text=Hi%20Sree%20Sree%20Reading%20Hall,%20I%20want%20to%20inquire%20about%20seat%20booking"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full flex items-center justify-center space-x-2 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/30 transition-all"
+                  className="w-full flex items-center justify-center space-x-2 py-3 rounded-2xl bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-rose-600/30 transition-all"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Chat Immediately on WhatsApp</span>
@@ -89,40 +89,42 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Embedded Interactive Map Preview */}
-            <div className="glass-card rounded-3xl overflow-hidden border border-emerald-500/20 h-64 relative">
+            {/* Exact Google Maps Locator Plus Embed */}
+            <div className="glass-card rounded-3xl overflow-hidden border border-rose-500/20 h-72 sm:h-80 relative shadow-xl">
               <iframe
-                title="Sree Sree Reading Hall Location Map"
-                src="https://maps.google.com/maps?q=17.4065,78.4772&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full border-0 filter opacity-85 invert grayscale hover:grayscale-0 hover:invert-0 transition-all"
+                title="Sree Sree Reading Hall Exact Google Map Location"
+                src="https://storage.googleapis.com/maps-solutions-78rkkkitr5/locator-plus/i1td/locator-plus.html"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
                 loading="lazy"
               />
-              <div className="absolute bottom-2 left-2 bg-slate-950/90 text-emerald-400 px-3 py-1 rounded-full text-[10px] font-bold border border-emerald-500/30">
-                Near Passport Office, Tirupati
+              <div className="absolute top-2 left-2 bg-slate-950/90 text-rose-300 px-3 py-1 rounded-full text-[10px] font-bold border border-rose-500/30">
+                📍 Exact Sree Sree Tirupati Location
               </div>
             </div>
 
           </div>
 
           {/* Right - Quick Inquiry Form (Col 7) */}
-          <div className="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-emerald-500/30">
+          <div className="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-rose-500/30">
             {submitted ? (
               <div className="text-center py-16 space-y-4">
-                <CheckCircle2 className="w-16 h-16 text-emerald-400 mx-auto animate-bounce" />
+                <CheckCircle2 className="w-16 h-16 text-rose-400 mx-auto animate-bounce" />
                 <h3 className="text-2xl font-bold text-white font-['Outfit']">Inquiry Received!</h3>
                 <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
-                  Thank you, <strong className="text-emerald-400">{formData.name}</strong>. Our branch manager will call you at <strong className="text-emerald-400">{formData.phone}</strong> shortly to confirm desk availability.
+                  Thank you, <strong className="text-rose-400">{formData.name}</strong>. Our branch manager will call you at <strong className="text-rose-400">{formData.phone}</strong> shortly to confirm desk availability.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="px-6 py-2.5 bg-emerald-950 border border-emerald-500/30 text-emerald-300 text-xs font-bold rounded-xl hover:bg-emerald-900"
+                  className="px-6 py-2.5 bg-rose-950 border border-rose-500/30 text-rose-300 text-xs font-bold rounded-xl hover:bg-rose-900"
                 >
                   Submit Another Request
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="text-xl font-bold text-white font-['Outfit'] border-b border-emerald-900/40 pb-3">
+                <h3 className="text-xl font-bold text-white font-['Outfit'] border-b border-rose-900/40 pb-3">
                   Quick Seat Inquiry / Callback Request
                 </h3>
 
@@ -135,7 +137,7 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. K. Teja"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/30 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-rose-500/30 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-rose-400"
                     />
                   </div>
                   <div>
@@ -146,7 +148,7 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. +91 9666152456"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/30 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-rose-500/30 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-rose-400"
                     />
                   </div>
                 </div>
@@ -157,7 +159,7 @@ export const Contact: React.FC = () => {
                     <select
                       value={formData.exam}
                       onChange={(e) => setFormData({ ...formData, exam: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/30 text-white text-xs focus:outline-none focus:border-emerald-400"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-rose-500/30 text-white text-xs focus:outline-none focus:border-rose-400"
                     >
                       <option value="APPSC Group 1/2">APPSC Group 1 / 2</option>
                       <option value="UPSC Civil Services">UPSC Civil Services</option>
@@ -172,7 +174,7 @@ export const Contact: React.FC = () => {
                     <select
                       value={formData.shift}
                       onChange={(e) => setFormData({ ...formData, shift: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/30 text-white text-xs focus:outline-none focus:border-emerald-400"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-rose-500/30 text-white text-xs focus:outline-none focus:border-rose-400"
                     >
                       <option value="Full Day">Full Day (24 Hours)</option>
                       <option value="Morning">Morning Shift (6 AM - 2 PM)</option>
@@ -189,13 +191,13 @@ export const Contact: React.FC = () => {
                     placeholder="Mention any specific desk preference or questions..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-emerald-500/30 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-rose-500/30 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-rose-400"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center space-x-2"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-rose-600/30 transition-all flex items-center justify-center space-x-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Inquiry Request</span>
