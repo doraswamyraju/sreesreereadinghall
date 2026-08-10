@@ -20,13 +20,13 @@ export const Gallery: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/30 flex items-center justify-center w-fit mx-auto">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-800 bg-rose-100 px-3 py-1 rounded-full border border-rose-300 flex items-center justify-center w-fit mx-auto">
             <Camera className="w-3.5 h-3.5 mr-1.5" /> Real Photo Tour
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit']">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-['Outfit']">
             Take a Look Inside <span className="gradient-text">Sree Sree Reading Hall</span>
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base">
+          <p className="text-slate-700 text-sm sm:text-base">
             Browse authentic photographs of our reading bays, climate control systems, mineral water stations, dining lounge, and washroom facilities in Tirupati.
           </p>
 
@@ -38,8 +38,8 @@ export const Gallery: React.FC = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   selectedCategory === cat
-                    ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md shadow-rose-600/20'
-                    : 'bg-rose-950/40 text-slate-300 border border-rose-500/20 hover:border-rose-500/40'
+                    ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md shadow-rose-500/20'
+                    : 'bg-white text-slate-700 border border-rose-200 hover:border-rose-300'
                 }`}
               >
                 {cat}
@@ -54,7 +54,7 @@ export const Gallery: React.FC = () => {
             <div
               key={img.id}
               onClick={() => setActiveModalImage(img)}
-              className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-rose-500/20 hover:border-rose-400/50 transition-all duration-300 relative"
+              className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-rose-200 hover:border-rose-400 transition-all duration-300 relative bg-white"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -65,21 +65,21 @@ export const Gallery: React.FC = () => {
                 
                 <div className="absolute inset-0 bg-rose-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                    <Maximize2 className="w-8 h-8 text-rose-400 mx-auto mb-2" />
+                    <Maximize2 className="w-8 h-8 text-rose-300 mx-auto mb-2" />
                     <p className="text-xs font-bold text-white uppercase tracking-wider">Click to Expand</p>
                   </div>
                 </div>
 
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-rose-300 bg-rose-950/90 border border-rose-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
+                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-rose-800 bg-white/90 border border-rose-300 px-2.5 py-1 rounded-full backdrop-blur-md">
                   {img.category}
                 </span>
               </div>
 
-              <div className="p-4 bg-slate-900/90">
-                <h3 className="text-base font-bold text-white font-['Outfit'] group-hover:text-rose-400 transition-colors">
+              <div className="p-4 bg-white">
+                <h3 className="text-base font-bold text-slate-900 font-['Outfit'] group-hover:text-rose-600 transition-colors">
                   {img.title}
                 </h3>
-                <p className="text-xs text-slate-400 line-clamp-2 mt-1">
+                <p className="text-xs text-slate-600 line-clamp-2 mt-1">
                   {img.description}
                 </p>
               </div>
@@ -91,12 +91,12 @@ export const Gallery: React.FC = () => {
 
       {/* Lightbox Zoom Modal */}
       {activeModalImage && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in">
-          <div className="relative max-w-4xl w-full glass-card border border-rose-500/40 rounded-3xl overflow-hidden bg-slate-900">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in">
+          <div className="relative max-w-4xl w-full glass-card border border-rose-300 rounded-3xl overflow-hidden bg-white">
             
             <button
               onClick={() => setActiveModalImage(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-950/80 border border-rose-500/30 text-white hover:text-rose-400"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900/80 text-white hover:text-rose-300"
             >
               <X className="w-6 h-6" />
             </button>
@@ -109,14 +109,14 @@ export const Gallery: React.FC = () => {
               />
             </div>
 
-            <div className="p-6 bg-slate-950 border-t border-rose-900/40">
-              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
+            <div className="p-6 bg-white border-t border-rose-100">
+              <span className="text-xs font-bold text-rose-600 uppercase tracking-wider">
                 {activeModalImage.category}
               </span>
-              <h3 className="text-xl font-bold text-white font-['Outfit'] mt-0.5">
+              <h3 className="text-xl font-bold text-slate-900 font-['Outfit'] mt-0.5">
                 {activeModalImage.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mt-1">
+              <p className="text-xs sm:text-sm text-slate-700 mt-1">
                 {activeModalImage.description}
               </p>
             </div>

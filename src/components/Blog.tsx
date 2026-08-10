@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BLOG_POSTS } from '../data/mockData';
 import { BlogPost } from '../types';
 import { BlogPostModal } from './BlogPostModal';
 import { Search, Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
@@ -27,18 +26,18 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
   });
 
   return (
-    <section id="blog" className="py-20 relative bg-rose-950/20">
+    <section id="blog" className="py-20 relative bg-rose-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/30 flex items-center justify-center w-fit mx-auto">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-800 bg-rose-100 px-3 py-1 rounded-full border border-rose-300 flex items-center justify-center w-fit mx-auto">
             <BookOpen className="w-3.5 h-3.5 mr-1.5" /> Aspirant Knowledge Hub
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit']">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-['Outfit']">
             Exam Insights & <span className="gradient-text">Study Productivity Blogs</span>
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base">
+          <p className="text-slate-700 text-sm sm:text-base">
             Expert strategies on time management, APPSC/UPSC exam preparation, and maintaining focus in reading halls.
           </p>
 
@@ -51,7 +50,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
                 placeholder="Search articles (e.g. APPSC, focus, revision)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-slate-900 border border-rose-500/30 text-white placeholder-slate-400 text-xs focus:outline-none focus:border-rose-400 transition-colors"
+                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white border border-rose-300 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-rose-500 transition-colors shadow-sm"
               />
             </div>
 
@@ -63,7 +62,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                     selectedCategory === cat
                       ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md'
-                      : 'bg-slate-900 text-slate-300 border border-rose-500/20 hover:border-rose-500/40'
+                      : 'bg-white text-slate-700 border border-rose-200 hover:border-rose-300'
                   }`}
                 >
                   {cat}
@@ -81,7 +80,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
               <article
                 key={post.id}
                 onClick={() => setActivePost(post)}
-                className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-rose-500/20 hover:border-rose-400/40 transition-all duration-300 flex flex-col justify-between"
+                className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-rose-200 hover:border-rose-400 transition-all duration-300 flex flex-col justify-between bg-white"
               >
                 <div>
                   <div className="relative h-48 overflow-hidden">
@@ -90,35 +89,35 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-rose-300 bg-slate-950/80 border border-rose-500/30 px-2.5 py-1 rounded-full backdrop-blur-md">
+                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-rose-800 bg-white/95 border border-rose-300 px-2.5 py-1 rounded-full backdrop-blur-md">
                       {post.category}
                     </span>
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <div className="flex items-center space-x-3 text-[11px] text-slate-400 font-medium">
+                    <div className="flex items-center space-x-3 text-[11px] text-slate-500 font-medium">
                       <span className="flex items-center space-x-1">
-                        <Calendar className="w-3 h-3 text-rose-400" />
+                        <Calendar className="w-3 h-3 text-rose-600" />
                         <span>{post.date}</span>
                       </span>
                       <span>•</span>
                       <span className="flex items-center space-x-1">
-                        <Clock className="w-3 h-3 text-rose-400" />
+                        <Clock className="w-3 h-3 text-rose-600" />
                         <span>{post.readTime}</span>
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white font-['Outfit'] group-hover:text-rose-400 transition-colors leading-snug line-clamp-2">
+                    <h3 className="text-lg font-bold text-slate-900 font-['Outfit'] group-hover:text-rose-600 transition-colors leading-snug line-clamp-2">
                       {post.title}
                     </h3>
 
-                    <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
+                    <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
                       {post.excerpt}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 flex items-center justify-between text-xs font-bold text-rose-400 group-hover:text-rose-300">
+                <div className="p-6 pt-0 flex items-center justify-between text-xs font-bold text-rose-600 group-hover:text-rose-700">
                   <span>Read Full Article</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -126,8 +125,8 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 glass-card rounded-2xl">
-            <p className="text-slate-400 text-sm">No blog posts found matching your search query.</p>
+          <div className="text-center py-12 glass-card rounded-2xl bg-white">
+            <p className="text-slate-500 text-sm">No blog posts found matching your search query.</p>
           </div>
         )}
 

@@ -11,29 +11,29 @@ export const Pricing: React.FC<PricingProps> = ({ plans, onOpenBooking }) => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'daily'>('monthly');
 
   return (
-    <section id="pricing" className="py-20 relative bg-rose-950/20">
+    <section id="pricing" className="py-20 relative bg-rose-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-300 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/30">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-rose-800 bg-rose-100 px-3 py-1 rounded-full border border-rose-300">
             Transparent Pricing
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit']">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-['Outfit']">
             Affordable <span className="gradient-text">Membership Plans</span> for Every Aspirant
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base">
+          <p className="text-slate-700 text-sm sm:text-base">
             No hidden maintenance fees or security deposits. Choose between full-month memberships or daily trial passes.
           </p>
 
           {/* Billing Cycle Toggle */}
-          <div className="inline-flex items-center bg-slate-900 border border-rose-500/30 p-1 rounded-2xl mt-4">
+          <div className="inline-flex items-center bg-white border border-rose-300 p-1 rounded-2xl mt-4 shadow-sm">
             <button
               onClick={() => setBillingCycle('monthly')}
               className={`px-5 py-2 rounded-xl text-xs font-bold transition-all ${
                 billingCycle === 'monthly'
                   ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Monthly Membership
@@ -43,7 +43,7 @@ export const Pricing: React.FC<PricingProps> = ({ plans, onOpenBooking }) => {
               className={`px-5 py-2 rounded-xl text-xs font-bold transition-all ${
                 billingCycle === 'daily'
                   ? 'bg-gradient-to-r from-rose-600 to-amber-500 text-white shadow-md'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Daily Pass
@@ -62,8 +62,8 @@ export const Pricing: React.FC<PricingProps> = ({ plans, onOpenBooking }) => {
                 key={plan.id}
                 className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
                   plan.popular
-                    ? 'glass-card border-2 border-rose-400 shadow-2xl shadow-rose-600/30 bg-slate-900/90 scale-105 z-10'
-                    : 'glass-card border border-rose-500/20 bg-slate-900/60 hover:border-rose-500/40'
+                    ? 'glass-card border-2 border-rose-500 shadow-2xl shadow-rose-500/20 bg-white/95 scale-105 z-10'
+                    : 'glass-card border border-rose-200 bg-white/80 hover:border-rose-300'
                 }`}
               >
                 {/* Popular Badge */}
@@ -75,23 +75,23 @@ export const Pricing: React.FC<PricingProps> = ({ plans, onOpenBooking }) => {
                 )}
 
                 <div>
-                  <h3 className="text-xl font-extrabold text-white font-['Outfit'] mb-1">
+                  <h3 className="text-xl font-extrabold text-slate-900 font-['Outfit'] mb-1">
                     {plan.name}
                   </h3>
-                  <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                  <p className="text-xs text-slate-600 mb-6 leading-relaxed">
                     {plan.tagline}
                   </p>
 
-                  <div className="mb-6 pb-6 border-b border-rose-900/40">
-                    <span className="text-4xl font-black text-white font-['Outfit']">₹{price}</span>
-                    <span className="text-xs text-slate-400 font-medium ml-1">{period}</span>
+                  <div className="mb-6 pb-6 border-b border-rose-100">
+                    <span className="text-4xl font-black text-slate-900 font-['Outfit']">₹{price}</span>
+                    <span className="text-xs text-slate-500 font-medium ml-1">{period}</span>
                   </div>
 
                   {/* Feature Checklist */}
-                  <ul className="space-y-3 mb-8 text-xs text-slate-300">
+                  <ul className="space-y-3 mb-8 text-xs text-slate-700">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start space-x-2.5">
-                        <Check className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -102,8 +102,8 @@ export const Pricing: React.FC<PricingProps> = ({ plans, onOpenBooking }) => {
                   onClick={onOpenBooking}
                   className={`w-full py-3.5 rounded-xl font-extrabold text-xs uppercase tracking-wider transition-all shadow-md ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white shadow-rose-600/30'
-                      : 'bg-rose-950 hover:bg-rose-900 text-rose-200 border border-rose-500/30'
+                      ? 'bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white shadow-rose-500/25'
+                      : 'bg-rose-100 hover:bg-rose-200 text-rose-900 border border-rose-300'
                   }`}
                 >
                   Choose {plan.name}

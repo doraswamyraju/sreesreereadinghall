@@ -36,7 +36,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0612] text-slate-100 selection:bg-rose-500 selection:text-white font-sans">
+    <div className="min-h-screen bg-[#fff1f2] text-slate-800 selection:bg-rose-500 selection:text-white font-sans">
       
       {/* Navigation Header */}
       <Navbar
