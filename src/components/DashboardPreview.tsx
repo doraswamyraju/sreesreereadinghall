@@ -80,7 +80,7 @@ export const DashboardPreview: React.FC<DashboardPreviewProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex flex-col overflow-hidden animate-in fade-in">
+    <div className="fixed inset-0 z-50 bg-rose-950/40 backdrop-blur-md flex flex-col overflow-hidden animate-in fade-in">
       
       {/* Top Admin Navigation Header */}
       <div className="bg-white border-b border-rose-200 px-6 py-4 flex items-center justify-between shadow-sm">
