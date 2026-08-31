@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, Sparkles, LayoutDashboard } from 'lucide-react';
+import { Phone, Menu, X, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
-  onToggleDashboard: () => void;
-  showDashboard: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onToggleDashboard, showDashboard }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -71,18 +69,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onToggleDashboard
 
           {/* Actions & Call CTAs */}
           <div className="hidden lg:flex items-center space-x-3">
-            <button
-              onClick={onToggleDashboard}
-              className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition-all ${
-                showDashboard 
-                  ? 'bg-[#db2777] text-white border-[#db2777]' 
-                  : 'bg-white text-slate-700 border-[#fbcfe8] hover:text-[#db2777] hover:border-[#db2777]'
-              }`}
-            >
-              <LayoutDashboard className="w-4 h-4 text-[#db2777]" />
-              <span>{showDashboard ? 'Exit Dashboard' : 'Admin & Pricing Portal'}</span>
-            </button>
-
             <a
               href="tel:+919666152456"
               className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-white border border-[#fbcfe8] text-[#db2777] hover:bg-[#fdf2f8] transition-colors text-xs font-bold"
@@ -91,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onToggleDashboard
               <span>+91 9666152456</span>
             </a>
 
-            {/* Solid Pink Button - NO Gradient */}
+            {/* Solid Pink Button */}
             <button
               onClick={onOpenBooking}
               className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-[#db2777] hover:bg-[#be185d] text-white font-bold text-xs shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0"
@@ -138,18 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onToggleDashboard
             ))}
           </div>
 
-          <div className="pt-2 space-y-2">
-            <button
-              onClick={() => {
-                onToggleDashboard();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-xl bg-white border border-[#fbcfe8] text-[#db2777] text-xs font-bold"
-            >
-              <LayoutDashboard className="w-4 h-4" />
-              <span>{showDashboard ? 'Return to Main Website' : 'Admin & Pricing Portal'}</span>
-            </button>
-
+          <div className="pt-2">
             <a
               href="tel:+919666152456"
               className="w-full flex items-center justify-center space-x-2 py-2.5 rounded-xl bg-[#db2777] text-white text-xs font-bold"

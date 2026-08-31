@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
               Tirupati's premier AC reading hall and study room provider. Peaceful, secure, and equipped with all modern amenities for competitive exam aspirants.
             </p>
             <div className="text-xs text-[#db2777] font-extrabold">
-              Operational 24/7 • All 365 Days
+              Operational: 7:00 AM – 10:00 PM • All 365 Days
             </div>
           </div>
 
@@ -38,6 +38,7 @@ export const Footer: React.FC = () => {
               <li><a href="#pricing" className="hover:text-[#db2777] transition-colors">Pricing & Plans</a></li>
               <li><a href="#gallery" className="hover:text-[#db2777] transition-colors">Real Photo Tour</a></li>
               <li><a href="#blog" className="hover:text-[#db2777] transition-colors">Exam Study Blogs</a></li>
+              <li><a href="/login" className="hover:text-[#db2777] transition-colors text-slate-400 font-normal">Admin Login</a></li>
             </ul>
           </div>
 
@@ -69,7 +70,10 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#fbcfe8] flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-medium gap-4">
-          <p>© {new Date().getFullYear()} Sree Sree Reading Hall (Sree Sree Services). All rights reserved.</p>
+          <div className="flex items-center space-x-4">
+            <p>© {new Date().getFullYear()} Sree Sree Reading Hall (Sree Sree Services). All rights reserved.</p>
+            <a href="/login" className="text-slate-400 hover:text-[#db2777] text-[11px] underline">Admin Access</a>
+          </div>
           
           <button
             onClick={scrollToTop}

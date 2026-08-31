@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
                 <Clock className="w-5 h-5 text-white shrink-0" />
                 <div>
                   <h4 className="font-extrabold text-white uppercase tracking-wider">Operational Hours</h4>
-                  <p className="text-xs text-white font-semibold">Open 24 Hours / 7 Days a Week</p>
+                  <p className="text-xs text-white font-semibold">7:00 AM – 10:00 PM (Daily / All Days)</p>
                 </div>
               </div>
 
@@ -176,10 +176,9 @@ export const Contact: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, shift: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#fbcfe8] text-slate-900 text-xs focus:outline-none focus:border-[#db2777] shadow-xs"
                     >
-                      <option value="Full Day">Full Day (24 Hours)</option>
-                      <option value="Morning">Morning Shift (6 AM - 2 PM)</option>
-                      <option value="Evening">Evening Shift (2 PM - 10 PM)</option>
-                      <option value="Night">Night Owl (10 PM - 6 AM)</option>
+                      <option value="Full Day">Full Day (7 AM - 10 PM)</option>
+                      <option value="Morning">Morning Shift (7 AM - 2:30 PM)</option>
+                      <option value="Evening">Evening Shift (2:30 PM - 10 PM)</option>
                     </select>
                   </div>
                 </div>

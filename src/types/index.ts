@@ -1,18 +1,31 @@
-export type ShiftType = 'morning' | 'afternoon' | 'evening' | 'full_day' | 'night_shift';
+export type ShiftType = 'full_day' | 'morning' | 'evening';
 
 export type SeatStatus = 'available' | 'reserved' | 'occupied' | 'maintenance';
-export type ZoneType = 'ac_prime' | 'ac_standard' | 'non_ac' | 'silent_cabin';
+export type DeskColorType = 'pink' | 'blue';
+export type ZoneType = 'ac_pink' | 'ac_blue';
+
+export type DurationOption = '7_days' | '10_days' | '15_days' | '20_days' | '30_days';
 
 export interface Seat {
   id: string;
   seatNumber: string;
+  color: DeskColorType;
   zone: ZoneType;
   row: string;
   col: number;
   status: SeatStatus;
   hasPowerOutlet: boolean;
   hasDeskLamp: boolean;
-  pricePerMonth: number;
+  hasLocker: boolean;
+  chairType: 'cushion' | 'normal';
+  priceMonthly: number;
+  rates: {
+    days7: number;
+    days10: number;
+    days15: number;
+    days20: number;
+    days30: number;
+  };
 }
 
 export interface Facility {
@@ -27,11 +40,21 @@ export interface Facility {
 export interface PricingPlan {
   id: string;
   name: string;
+  deskColor: DeskColorType;
+  totalDesks: number;
   tagline: string;
-  priceMonthly: number;
-  priceDaily: number;
   popular?: boolean;
   zoneType: ZoneType;
+  chairType: string;
+  hasLocker: boolean;
+  rates: {
+    days7: number;
+    days10: number;
+    days15: number;
+    days20: number;
+    days30: number;
+  };
+  priceMonthly: number;
   features: string[];
 }
 
@@ -70,12 +93,13 @@ export interface GalleryImage {
 export interface BookingFormData {
   seatId: string;
   seatNumber: string;
+  deskColor: DeskColorType;
   fullName: string;
   phone: string;
   email: string;
   examPrep: string;
   shift: ShiftType;
-  startDate: string;
-  durationMonths: number;
+  duration: DurationOption;
   totalPrice: number;
+  paymentMode: 'offline_at_desk';
 }

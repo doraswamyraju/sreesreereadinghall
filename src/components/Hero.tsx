@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#fdf2f8] border border-[#fbcfe8] text-[#db2777] text-xs font-bold shadow-xs">
               <Sparkles className="w-4 h-4 text-[#db2777]" />
               <span>Tirupati's #1 Premium AC Reading Room</span>
-              <span className="bg-[#db2777] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">24/7 OPEN</span>
+              <span className="bg-[#db2777] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">7 AM - 10 PM</span>
             </div>
 
             {/* Title - Pure Brand Pink & Slate Dark */}
@@ -137,12 +137,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
             {/* Floating Live Badge */}
             <div className="absolute -bottom-5 -left-4 bg-white border-2 border-[#db2777] text-slate-900 p-3.5 rounded-2xl shadow-xl flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-[#db2777] flex items-center justify-center text-white font-black text-lg">
-                24
+              <div className="w-10 h-10 rounded-xl bg-[#db2777] flex items-center justify-center text-white font-black text-xs text-center leading-tight">
+                7AM<br/>10PM
               </div>
               <div>
-                <p className="text-xs font-bold text-[#db2777]">24 Hours Access</p>
-                <p className="text-[11px] text-slate-600 font-semibold">Morning, Evening & Night Shifts</p>
+                <p className="text-xs font-bold text-[#db2777]">7 AM - 10 PM Open</p>
+                <p className="text-[11px] text-slate-600 font-semibold">Morning, Evening & Full Day Shifts</p>
               </div>
             </div>
 
