@@ -28,6 +28,45 @@ export function App() {
   const [selectedShift, setSelectedShift] = useState<ShiftType>('full_day');
   const [selectedDuration, setSelectedDuration] = useState<DurationOption>('30_days');
 
+  // Load persistent server state on mount
+  useEffect(() => {
+    fetch('/api/seats.php')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setSeats(data);
+        }
+      })
+      .catch(() => {});
+
+    fetch('/api/pricing.php')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setPlans(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleUpdateSeats = (updatedSeats: Seat[]) => {
+    setSeats(updatedSeats);
+    fetch('/api/seats.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedSeats),
+    }).catch((err) => console.warn('Sync warning:', err));
+  };
+
+  const handleUpdatePlans = (updatedPlans: PricingPlan[]) => {
+    setPlans(updatedPlans);
+    fetch('/api/pricing.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedPlans),
+    }).catch((err) => console.warn('Sync warning:', err));
+  };
+
   // Simple router listener for /login or #login
   useEffect(() => {
     const handleLocationChange = () => {
@@ -110,9 +149,9 @@ export function App() {
       {showDashboard && (
         <DashboardPreview
           seats={seats}
-          onUpdateSeats={setSeats}
+          onUpdateSeats={handleUpdateSeats}
           plans={plans}
-          onUpdatePlans={setPlans}
+          onUpdatePlans={handleUpdatePlans}
           blogs={blogs}
           onUpdateBlogs={setBlogs}
           onClose={() => {
